@@ -1,4 +1,9 @@
-const client = require("prom-client");
+import {
+  Registry,
+  collectDefaultMetrics,
+  Counter,
+  Histogram,
+} from "prom-client";
 
 class PrometheusMetrics {
   constructor(options = {}) {
@@ -6,7 +11,7 @@ class PrometheusMetrics {
     this.appName = options.appName || "unknown-app";
     this.env = options.env || process.env.NODE_ENV || "development";
 
-    this.register = new client.Registry();
+    this.register = new Registry();
 
     this.setupDefaultMetrics();
     this.setupCustomMetrics();
@@ -14,7 +19,7 @@ class PrometheusMetrics {
   }
 
   setupDefaultMetrics() {
-    client.collectDefaultMetrics({
+    collectDefaultMetrics({
       register: this.register,
       prefix: this.prefix,
       gcDurationBuckets: [
@@ -25,14 +30,14 @@ class PrometheusMetrics {
   }
 
   setupCustomMetrics() {
-    this.httpRequestsTotal = new client.Counter({
+    this.httpRequestsTotal = new Counter({
       name: "http_requests_total",
       help: "Total number of HTTP requests",
       labelNames: ["method", "route", "status_code"],
       registers: [this.register],
     });
 
-    this.httpRequestDuration = new client.Histogram({
+    this.httpRequestDuration = new Histogram({
       name: "http_request_duration_seconds",
       help: "Duration of HTTP requests in seconds",
       labelNames: ["method", "route", "status_code"],
@@ -58,4 +63,4 @@ class PrometheusMetrics {
   }
 }
 
-module.exports = PrometheusMetrics;
+export default PrometheusMetrics;
