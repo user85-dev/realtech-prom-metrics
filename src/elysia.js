@@ -1,4 +1,4 @@
-import PrometheusMetrics from "./metrics";
+const PrometheusMetrics = require("./metrics");
 
 class ElysiaMetrics extends PrometheusMetrics {
   constructor(options = {}) {
@@ -39,4 +39,4 @@ class ElysiaMetrics extends PrometheusMetrics {
   }
 }
 
-export default ElysiaMetrics;
+module.exports = ElysiaMetrics;

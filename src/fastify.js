@@ -1,4 +1,4 @@
-import PrometheusMetrics from "./metrics";
+const PrometheusMetrics = require("./metrics");
 
 class FastifyMetrics extends PrometheusMetrics {
   constructor(options = {}) {
@@ -44,4 +44,4 @@ class FastifyMetrics extends PrometheusMetrics {
   }
 }
 
-export default FastifyMetrics;
+module.exports = FastifyMetrics;

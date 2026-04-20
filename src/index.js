@@ -1,9 +1,10 @@
-import PrometheusMetrics from "./metrics";
-import ExpressMetrics from "./express";
-import FastifyMetrics from "./fastify";
-import ElysiaMetrics from "./elysia";
+// src/index.js
+const PrometheusMetrics = require("./metrics");
+const ExpressMetrics = require("./express");
+const FastifyMetrics = require("./fastify");
+const ElysiaMetrics = require("./elysia");
 
-export default {
+module.exports = {
   PrometheusMetrics,
   ExpressMetrics,
   FastifyMetrics,
