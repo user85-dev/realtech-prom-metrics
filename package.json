@@ -1,5 +1,5 @@
 {
-  "name": "@prom-client/prometheus-metrics",
+  "name": "@realtech/prom-metrics",
   "version": "1.0.0",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
   "main": "src/index.js",

@@ -1,4 +1,4 @@
-# @prom-client/prometheus-metrics
+# @realtech/prom-metrics
 
 Library reusable untuk setup Prometheus metrics di aplikasi **Express** dan **Fastify**. 
 
