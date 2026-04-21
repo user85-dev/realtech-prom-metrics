@@ -1,6 +1,6 @@
 {
   "name": "@realtechltd/prom-metrics",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
   "type": "module",
   "author": "RealtechLTD",
