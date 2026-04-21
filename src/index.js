@@ -3,6 +3,7 @@ import ExpressMetrics from "./express.js";
 import FastifyMetrics from "./fastify.js";
 import ElysiaMetrics from "./elysia.js";
 
+// Exporting the classes and factory functions for creating instances of the metrics middleware for different web frameworks.
 export default {
   PrometheusMetrics,
   ExpressMetrics,
