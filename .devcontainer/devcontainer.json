@@ -1,0 +1,6 @@
+{
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "coder",
+  "postCreateCommand": "npm install --no-audit --no-fund || echo 'No package.json found at root (this is normal for libraries)'",
+  "postStartCommand": "echo 'Coder workspace ready for prometheus-metrics library development!'"
+}
