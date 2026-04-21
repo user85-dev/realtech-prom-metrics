@@ -1,0 +1,14 @@
+pre-push:
+  jobs:
+    - name: packages audit
+      tags:
+        - security
+      run: yarn audit
+
+pre-commit:
+  parallel: true
+  commands:
+    test:
+      run: npm run test
+      tags:
+        - test

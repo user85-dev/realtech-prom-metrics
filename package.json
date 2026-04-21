@@ -1,10 +1,53 @@
 {
-  "name": "@realtech/prom-metrics",
+  "name": "@realtechltd/prom-metrics",
   "version": "1.0.0",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
   "main": "src/index.js",
   "private": true,
+  "scripts": {
+    "test": "jest --coverage",
+    "audit": "npm audit --audit-level=high",
+    "lint": "eslint src/**/*.js",
+    "prepare": "lefthook install"
+  },
+  "keywords": [
+    "prometheus",
+    "metrics",
+    "prom-client",
+    "fastify",
+    "express",
+    "elysia",
+    "observability"
+  ],
+  "author": "RealtechLTD",
+  "license": "UNLICENSED",
   "dependencies": {
     "prom-client": "^15.1.0"
+  },
+  "peerDependencies": {
+    "elysia": ">=1.0.0",
+    "express": ">=4.0.0",
+    "fastify": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "elysia": {
+      "optional": true
+    },
+    "express": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "lefthook": "^2.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://us-west2-npm.pkg.dev/nomor-224005/npm-repository"
   }
 }
