@@ -3,6 +3,8 @@ import ExpressMetrics from "./express.js";
 import FastifyMetrics from "./fastify.js";
 import ElysiaMetrics from "./elysia.js";
 
+// Exporting the metrics classes and factory functions for creating instances with options
+
 export default {
   PrometheusMetrics,
   ExpressMetrics,
