@@ -18,6 +18,15 @@ steps:
     entrypoint: npm
     args: ["audit", "--audit-level=high"]
 
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: "get-token"
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -e
+        gcloud auth print-access-token > /workspace/auth_token
+
   - name: "node:25-alpine"
     id: "publish"
     entrypoint: sh
@@ -26,11 +35,10 @@ steps:
       - |
         set -eu
         REGISTRY_URL="https://${_REGION}-npm.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/"
-        AUTH_TOKEN=$(gcloud auth print-access-token)
         REGISTRY_PATH="${$$REGISTRY_URL#https:}"
 
         printf '@prom-client:registry=%s\n' "$$REGISTRY_URL" > .npmrc
-        printf '%s:_authToken=%s\n' "$$REGISTRY_PATH" "$$AUTH_TOKEN" >> .npmrc
+        printf '%s:_authToken=%s\n' "$$REGISTRY_PATH" "$(cat /workspace/auth_token)" >> .npmrc
         printf 'always-auth=true\n' >> .npmrc
 
         npm publish --access restricted
