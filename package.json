@@ -2,25 +2,21 @@
   "name": "@realtechltd/prom-metrics",
   "version": "1.2.0",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
-  "main": "src/index.js",
   "type": "module",
+  "author": "RealtechLTD",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc",
     "test": "node --test",
     "audit": "npm audit --audit-level=high",
     "prepare": "lefthook install"
   },
-  "keywords": [
-    "prometheus",
-    "metrics",
-    "prom-client",
-    "fastify",
-    "express",
-    "elysia",
-    "observability"
-  ],
-  "author": "RealtechLTD",
-  "license": "UNLICENSED",
   "dependencies": {
     "prom-client": "^15.1.0"
   },
@@ -51,7 +47,6 @@
     "node": ">=18.0.0",
     "bun": ">=1.3.0"
   },
-  "types": "types/index.d.ts",
   "publishConfig": {
     "registry": "https://us-west2-npm.pkg.dev/nomor-224005/npm-repository"
   }
