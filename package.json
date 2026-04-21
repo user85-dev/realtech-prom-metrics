@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "mocha",
+    "test": "node --test",
     "audit": "npm audit --audit-level=high",
     "prepare": "lefthook install"
   },
@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "lefthook": "^2.1.6",
-    "mocha": "^11.7.5",
     "typescript": "^6.0.3"
   },
   "engines": {
