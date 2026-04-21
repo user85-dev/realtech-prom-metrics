@@ -1,4 +1,4 @@
-import PrometheusMetrics from "./metrics";
+import PrometheusMetrics from "./metrics.js";
 
 class ElysiaMetrics extends PrometheusMetrics {
   constructor(options = {}) {
@@ -6,7 +6,12 @@ class ElysiaMetrics extends PrometheusMetrics {
   }
 
   plugin() {
-    const { Elysia } = require("elysia");
+    let Elysia;
+    try {
+      ({ Elysia } = require("elysia"));
+    } catch {
+      throw new Error("Please install 'elysia' to use ElysiaMetrics");
+    }
 
     return new Elysia({ name: "prometheus-metrics" })
       .derive(() => ({

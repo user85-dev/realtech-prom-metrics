@@ -1,4 +1,4 @@
-import PrometheusMetrics from "./metrics";
+import PrometheusMetrics from "./metrics.js";
 
 class ExpressMetrics extends PrometheusMetrics {
   constructor(options = {}) {

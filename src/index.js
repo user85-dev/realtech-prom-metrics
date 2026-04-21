@@ -1,7 +1,7 @@
-import PrometheusMetrics from "./metrics";
-import ExpressMetrics from "./express";
-import FastifyMetrics from "./fastify";
-import ElysiaMetrics from "./elysia";
+import PrometheusMetrics from "./metrics.js";
+import ExpressMetrics from "./express.js";
+import FastifyMetrics from "./fastify.js";
+import ElysiaMetrics from "./elysia.js";
 
 export default {
   PrometheusMetrics,
