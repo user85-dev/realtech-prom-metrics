@@ -1,4 +1,4 @@
-const PrometheusMetrics = require('./metrics');
+import PrometheusMetrics from "./metrics";
 
 class ExpressMetrics extends PrometheusMetrics {
   constructor(options = {}) {
@@ -9,21 +9,24 @@ class ExpressMetrics extends PrometheusMetrics {
     return (req, res, next) => {
       const start = process.hrtime.bigint();
 
-      res.on('finish', () => {
+      res.on("finish", () => {
         const duration = Number(process.hrtime.bigint() - start) / 1e9;
-        const route = req.route?.path || req.path || 'unknown';
+        const route = req.route?.path || req.path || "unknown";
 
         this.httpRequestsTotal.inc({
           method: req.method,
           route,
-          status_code: res.statusCode.toString()
+          status_code: res.statusCode.toString(),
         });
 
-        this.httpRequestDuration.observe({
-          method: req.method,
-          route,
-          status_code: res.statusCode.toString()
-        }, duration);
+        this.httpRequestDuration.observe(
+          {
+            method: req.method,
+            route,
+            status_code: res.statusCode.toString(),
+          },
+          duration,
+        );
       });
 
       next();
@@ -31,4 +34,4 @@ class ExpressMetrics extends PrometheusMetrics {
   }
 }
 
-module.exports = ExpressMetrics;
+export default ExpressMetrics;

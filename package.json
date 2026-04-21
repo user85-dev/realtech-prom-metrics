@@ -3,8 +3,10 @@
   "version": "1.0.1",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --coverage",
+    "build": "tsc",
+    "test": "mocha",
     "audit": "npm audit --audit-level=high",
     "prepare": "lefthook install"
   },
@@ -39,11 +41,13 @@
     }
   },
   "devDependencies": {
-    "jest": "^30.3.0",
-    "lefthook": "^2.1.6"
+    "lefthook": "^2.1.6",
+    "mocha": "^11.7.5",
+    "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "bun": ">=1.3.0"
   },
   "publishConfig": {
     "registry": "https://us-west2-npm.pkg.dev/nomor-224005/npm-repository"
