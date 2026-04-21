@@ -35,10 +35,10 @@ steps:
       - |
         set -eu
         REGISTRY_URL="https://${_REGION}-npm.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/"
-        REGISTRY_PATH="${$$REGISTRY_URL#https:}"
+        REGISTRY_PATH="$${REGISTRY_URL#https:}"
 
-        printf '@prom-client:registry=%s\n' "$$REGISTRY_URL" > .npmrc
+        printf '@realtechltd:registry=%s\n' "$$REGISTRY_URL" > .npmrc
+        printf '%s:always-auth=true\n' "$$REGISTRY_PATH" >> .npmrc
         printf '%s:_authToken=%s\n' "$$REGISTRY_PATH" "$(cat /workspace/auth_token)" >> .npmrc
-        printf 'always-auth=true\n' >> .npmrc
 
-        npm publish --access restricted
+        npm publish --access restricted --ignore-scripts
