@@ -3,15 +3,14 @@ import ExpressMetrics from "./express.js";
 import FastifyMetrics from "./fastify.js";
 import ElysiaMetrics from "./elysia.js";
 
-// Exporting the metrics classes and factory functions for creating instances with options
-
-export default {
+export {
   PrometheusMetrics,
   ExpressMetrics,
   FastifyMetrics,
   ElysiaMetrics,
-
-  createExpressMetrics: (options) => new ExpressMetrics(options),
-  createFastifyMetrics: (options) => new FastifyMetrics(options),
-  createElysiaMetrics: (options) => new ElysiaMetrics(options),
 };
+
+// Factory functions
+export const createExpressMetrics = (options) => new ExpressMetrics(options);
+export const createFastifyMetrics = (options) => new FastifyMetrics(options);
+export const createElysiaMetrics = (options) => new ElysiaMetrics(options);
