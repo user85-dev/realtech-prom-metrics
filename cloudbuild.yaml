@@ -6,7 +6,7 @@ steps:
   - name: "node:25-alpine"
     id: "prepare"
     entrypoint: npm
-    args: ["ci"]
+    args: ["ci", "--ignore-scripts"]
 
   - name: "node:25-alpine"
     id: "testing"
