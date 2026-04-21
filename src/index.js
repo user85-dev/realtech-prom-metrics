@@ -7,6 +7,7 @@ export default {
   PrometheusMetrics,
   ExpressMetrics,
   FastifyMetrics,
+  ElysiaMetrics,
 
   createExpressMetrics: (options) => new ExpressMetrics(options),
   createFastifyMetrics: (options) => new FastifyMetrics(options),

@@ -13,6 +13,7 @@ declare const _default: {
   PrometheusMetrics: typeof PrometheusMetrics;
   ExpressMetrics: typeof ExpressMetrics;
   FastifyMetrics: typeof FastifyMetrics;
+  ElysiaMetrics: typeof ElysiaMetrics;
 
   createExpressMetrics: typeof createExpressMetrics;
   createFastifyMetrics: typeof createFastifyMetrics;
