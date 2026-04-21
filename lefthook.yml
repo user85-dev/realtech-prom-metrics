@@ -3,7 +3,7 @@ pre-push:
     - name: packages audit
       tags:
         - security
-      run: yarn audit
+      run: npm run audit
 
 pre-commit:
   parallel: true
