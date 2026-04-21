@@ -1,6 +1,6 @@
 {
   "name": "@realtechltd/prom-metrics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable Prometheus metrics setup for RealtechLTD",
   "main": "src/index.js",
   "private": true,
