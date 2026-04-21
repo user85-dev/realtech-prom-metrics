@@ -52,7 +52,7 @@ describe("PrometheusMetrics", () => {
       expect(metrics.httpRequestDuration).toBeDefined();
     });
 
-    it("httpRequestsTotal increments correctly", () => {
+    it("httpRequestsTotal increments correctly", async () => {
       metrics.httpRequestsTotal.inc({
         method: "GET",
         route: "/",
@@ -63,7 +63,7 @@ describe("PrometheusMetrics", () => {
         route: "/",
         status_code: "200",
       });
-      const values = metrics.httpRequestsTotal.get();
+      const values = await metrics.httpRequestsTotal.get();
       const val = values.values.find(
         (v) =>
           v.labels.method === "GET" &&
@@ -73,12 +73,12 @@ describe("PrometheusMetrics", () => {
       expect(val.value).toBe(2);
     });
 
-    it("httpRequestDuration observes values", () => {
+    it("httpRequestDuration observes values", async () => {
       metrics.httpRequestDuration.observe(
         { method: "POST", route: "/api", status_code: "201" },
         0.042,
       );
-      const values = metrics.httpRequestDuration.get();
+      const values = await metrics.httpRequestDuration.get();
       expect(values.values.length).toBeGreaterThan(0);
     });
   });
