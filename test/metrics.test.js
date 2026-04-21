@@ -20,7 +20,7 @@ test("PrometheusMetrics", async (t) => {
 
   await t.test("defaults", () => {
     const m = new PrometheusMetrics();
-    assert.strictEqual(m.prefix, "api_");
+    assert.strictEqual(m.prefix, undefined);
     assert.strictEqual(m.appName, "unknown-app");
     m.register.clear();
   });

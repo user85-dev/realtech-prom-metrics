@@ -7,7 +7,7 @@ import {
 
 class PrometheusMetrics {
   constructor(options = {}) {
-    this.prefix = options.prefix || "api_";
+    this.prefix = options.prefix || undefined;
     this.appName = options.appName || "unknown-app";
     this.env = options.env || process.env.NODE_ENV || "development";
 
