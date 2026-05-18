@@ -5,7 +5,7 @@ class ElysiaMetrics extends PrometheusMetrics {
     super(options);
   }
 
-  plugin() {
+  plugin(path = "/metrics") {
     let Elysia;
     try {
       ({ Elysia } = require("elysia"));
@@ -31,16 +31,11 @@ class ElysiaMetrics extends PrometheusMetrics {
           { method, route, status_code: statusCode },
           duration,
         );
+      })
+      .get(path, async ({ set }) => {
+        set.headers["Content-Type"] = this.getContentType();
+        return await this.getMetrics();
       });
-  }
-
-  metricsRoute(path = "/metrics") {
-    const { Elysia } = require("elysia");
-
-    return new Elysia().get(path, async ({ set }) => {
-      set.headers["Content-Type"] = this.getContentType();
-      return await this.getMetrics();
-    });
   }
 }
 
