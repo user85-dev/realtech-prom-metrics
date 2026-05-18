@@ -16,7 +16,7 @@ steps:
   - name: "node:25-alpine"
     id: "audit"
     entrypoint: npm
-    args: ["audit", "--audit-level=high"]
+    args: ["run", "audit"]
 
   - name: "gcr.io/cloud-builders/gcloud"
     id: "get-token"
