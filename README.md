@@ -64,4 +64,6 @@ const app = new Elysia()
 
 ```
 
-[Ref](https://oneuptime.com/blog/post/2026-02-17-how-to-configure-an-npm-repository-in-artifact-registry-for-nodejs-packages/view)
+[How to Configure](https://oneuptime.com/blog/post/2026-02-17-how-to-configure-an-npm-repository-in-artifact-registry-for-nodejs-packages/view)
+
+[NodeJs Metrics](https://maxkim-j.github.io/en/posts/nodejs-server-monitoring/)
